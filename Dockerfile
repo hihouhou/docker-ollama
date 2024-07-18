@@ -9,7 +9,7 @@ FROM debian:latest
 
 MAINTAINER hihouhou < hihouhou@hihouhou.com >
 
-ENV OLLAMA_VERSION v0.2.6
+ENV OLLAMA_VERSION v0.2.7
 
 # Update & install packages for Ollama
 RUN apt-get update && \
