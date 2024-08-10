@@ -7,21 +7,22 @@
 # Pull base image.
 FROM debian:latest
 
-MAINTAINER hihouhou < hihouhou@hihouhou.com >
+LABEL org.opencontainers.image.authors="hihouhou@hihouhou.com"
 
-ENV OLLAMA_VERSION v0.3.4
+ENV OLLAMA_VERSION=v0.3.4
 
 # Update & install packages for Ollama
 RUN apt-get update && \
-    apt-get install -y netcat wget curl gnupg ca-certificates lsb-release
+    apt-get install -y netcat-traditional wget curl gnupg ca-certificates lsb-release
 
 RUN useradd -ms /bin/bash ollama
 
 RUN mkdir -p /home/ollama && \
     usermod -u 1000 ollama
 
-#Get steamcmd
-RUN wget -qO - https://ollama.com/install.sh | bash
+#RUN wget -q https://ollama.com/install.sh | bash
+RUN curl -L https://ollama.com/download/ollama-linux-amd64 -o /usr/local/bin/ollama && \
+    chmod +x /usr/local/bin/ollama
 
 USER ollama
 
