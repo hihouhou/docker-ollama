@@ -9,7 +9,7 @@ FROM debian:latest
 
 LABEL org.opencontainers.image.authors="hihouhou@hihouhou.com"
 
-ENV OLLAMA_VERSION=v0.3.4
+ENV OLLAMA_VERSION=v0.3.5
 
 # Update & install packages for Ollama
 RUN apt-get update && \
