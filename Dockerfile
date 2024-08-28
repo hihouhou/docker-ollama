@@ -21,7 +21,7 @@ RUN mkdir -p /home/ollama && \
     usermod -u 1000 ollama
 
 #RUN wget -q https://ollama.com/install.sh | bash
-RUN curl -L https://ollama.com/download/ollama-linux-amd64 -o /usr/local/bin/ollama && \
+RUN curl -L https://ollama.com/download/ollama-linux-amd64.tgz | tar zx -C /usr/local/ && \
     chmod +x /usr/local/bin/ollama
 
 USER ollama
